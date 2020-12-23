@@ -1,0 +1,380 @@
+/*
+  Project : Codewit 
+  Description :  A simple web page for practising web page styling
+  Author   : Adeleke Bright 
+  License  : MIT 
+  Last Updated : 08-12-2020 
+  Acknowledgement : Normalization.css , and the entire Ace Africa team
+*/ 
+/*--------------- Table of Contents 
+ * 1.0 Normalization 
+ * 2.0 Box Model Theory 
+ * 3.0 Typography
+ * 4.0 Transition , Transform , and Animation 
+ * 5.0 Layout using Flex and Media Queries
+ * 6.0 Positioning  
+ * 7.0 Working with Forms 
+ * 8.0 Working With Images 
+*/
+/*===== 1.0 Normalization=========== */
+:before , :after , * , body {
+    margin : 0 ; 
+    padding : 0
+} 
+
+/*===== 2.0 Box Model Theory ======*/  
+.border-sorround {
+    /* border : 1px solid #000 ; */ 
+    margin-bottom : 2rem;
+} 
+.img-responsive {
+    width : 100%;
+}
+.dark-border {
+    /* border-width: 3px; 
+    border-style: solid; 
+    border-color: #000; */ 
+    border : 3px solid #000
+} 
+.pad-10 {
+    /* padding-left : 10px ; 
+    padding-top : 10px ; 
+    padding-bottom : 10px ; 
+    padding-right : 10px */ 
+    padding : 10px
+} 
+.button {
+    padding : 12px 28px ; 
+    transition : transform 2s ease , background-color 2s ease-in ; 
+} 
+.radius-20 {
+    border-radius : 20px;
+} 
+.no-border {
+    border : none
+}
+.m-l-10 {
+    margin-left: 10px;
+}
+.m-b-1 {
+    margin-bottom : 1rem
+} 
+
+/*===== 3.0 Typography ====*/
+.bg-green {
+    background : #056d05;
+} 
+.white-text {
+    color : #fff
+}
+.big-font {
+    font-size: 20px;
+    font-weight: 800; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* font-style: italic; */
+} 
+
+.scale-by-2 {
+    transform : scale(2)
+} 
+.rotate-45deg {
+    transform : rotate(-45deg)
+}
+.move-right {
+    transform : translate(60px , 50px)
+} 
+.move-up {
+    transform : translateY(-30px) 
+} 
+
+.button:hover {
+    transform : translateY(-30px) ;
+    background : #f00;
+} 
+
+@keyframes fadein {
+    from{
+      opacity : 0 ;
+      transform: scale(0);
+    }
+    50%{
+      opacity: 0.5;
+      transform: scale(0.5);
+    }
+    75% {
+      opacity: 0.75;
+      transform: scale(0.75);
+    }
+    to {
+      opacity : 1 ;
+      transform: scale(1);
+    }
+} 
+.fade-in {
+    animation : fadein 6s ease 0ms infinite;
+    /* animation-name : fadein ; 
+    animation-duration: 6s ;
+    animation-timing-function: ease;
+    animation-delay: 0ms ;
+    animation-iteration-count:infinite;
+    animation-fill-mode: none;
+    animation-play-state: running; */
+} 
+@keyframes blinking-colors {
+    0%{
+        background : #ff0000; 
+        transform : translateX(10px)
+    }
+    10%{
+        background : #0000ff;
+        transform : translateX(30px)
+    }
+    20%{
+        background :#ffff00;
+        transform : translateX(40px)
+    }
+    30%{
+        background :#008000;
+        transform : translateX(60px)
+    }
+    40%{
+        background : #ffa500;
+        transform : translateX(70px)
+    }
+    80%{
+        background : #ee82ee;
+        transform : translateX(80px)
+    }
+    100%{
+        background : #4b0082;
+        transform : translateX(0px)
+    }
+}
+.blinking-colors {
+    animation : blinking-colors 5s ease 1s infinite alternate-reverse;
+}
+
+/*====== 5.0 Layout Using Flex */ 
+.framer {
+    padding-right : 20px;
+    padding-left : 20px;
+    margin-right : auto ; 
+    margin-left: auto;
+}
+.frame {
+    display : flex; 
+    flex-direction:row; 
+    flex-wrap: wrap;
+} 
+.justify-content-between {
+    justify-content: space-between;
+} 
+/* .fr-1 , .fr-2 {
+   position: relative ; 
+   min-height: 1px;
+} */
+/* .fr-1{ 
+    flex-shrink: 0; 
+    flex-grow: 0;
+    flex-basis : 30% ; 
+    max-width : 30%;
+}
+.fr-2 { 
+    /* flex-shrink: 0; 
+    flex-grow: 0;
+    flex-basis : 20% 
+    flex : 0 0 20%; 
+    max-width : 20%;
+}  */
+.fr-1 {
+    -ms-flex: 0 0 8.333333%;
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+}
+  
+.fr-2 {
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+}
+  
+.fr-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+  
+.fr-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+.fr-5 {
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+}
+  
+.fr-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  .fr-7 {
+    -ms-flex: 0 0 58.333333%;
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+  }
+  
+  .fr-8 {
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+  
+  .fr-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+  
+  .fr-10 {
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+}
+  
+.fr-11 {
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+  }
+  
+  .fr-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  /*== Using Media Queries */ 
+.bg-vary {
+    background : #f00
+}
+/*** Styling Forms ***/ 
+label {
+    display : block;
+    margin-bottom : 10px;
+}
+.input {
+    display : inline-block ; 
+    width : 100% ; 
+    box-shadow : border-box ; 
+    padding : 10px;
+    margin-bottom: .85rem; 
+    border : .85px solid #ccc; 
+    transition : transform 3s ease
+}
+
+.input:focus {
+    outline : 0 ; 
+    border : 2px solid #ccc;
+    transform : translateX(15px)
+}
+.first-name::placeholder {
+    color : #f00 ;
+    font-family : "Segoe UI" Roboto Helvetica;
+    font-size: 1.5rem;
+}
+/** Adding Background Images **/ 
+.m-r-1 {
+    margin-right : 1rem
+}
+
+.hero-section { 
+    background-image : url(../assets/images/finegirl.jpg) ; 
+    background-position: 70% 30%; 
+    background-size: cover; 
+    background-repeat :no-repeat ; 
+    background-attachment: fixed; 
+    padding-top : 10rem ; 
+    padding-bottom: 10rem; 
+}
+/** Postioniong **/
+.box-a {
+    border : 2px solid #000;
+    padding : 10px ; 
+    margin-bottom: 2rem;
+}
+.first {
+    position : relative ;
+    top : 20px;
+    border : 2px solid #f00 ;
+     padding : 25px ; 
+    
+}
+.second {
+    border : 2px solid #000 ;
+    padding : 25px ; 
+    position : relative ; 
+    z-index : 2 ; 
+}
+.dropdown {
+    border : 5px solid #000;
+    position: relative;
+    margin-bottom: 10rem;
+}
+.dropdown-content {
+    border : 1px solid #000;
+    position : absolute; 
+    min-width :500px; 
+    right: 0;
+    padding:10px;
+    box-shadow: 2px 3px 0 3px #ccc , 2px 3px 0 3px #ccc ; 
+    border-radius: 5px;
+    z-index: 2;
+   
+} 
+.dropdown-content a {
+    text-decoration: none; 
+    color : #000;
+    font-size: 1.25rem; 
+    display : block
+} 
+.fixed-to-top {
+    position : fixed ; 
+    top : 0;
+    left : 0;
+    width : 100%; 
+    background : #fff; 
+    padding : 10px;
+    box-shadow: 2px 3px 0 3px #fff , 2px 3px 0 3px #fff; 
+}
+.nav a {
+    margin-right :1rem;
+    text-decoration : none;
+    color : #000 ; 
+   
+} 
+.pad-top {
+    padding-top : 3rem;
+}
+@media (min-width : 576px){
+    .bg-vary {
+       background : #ffa500
+   }
+}
+@media (min-width : 768px){
+      .hide {
+          display : none
+      } 
+      .bg-vary {
+        background : #0f0
+    }
+
+}
+@media (min-width :1200px){
+    .bg-vary {
+       background : #000 ; 
+       color : #fff
+    } 
+} 
